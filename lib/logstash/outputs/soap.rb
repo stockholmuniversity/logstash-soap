@@ -29,6 +29,8 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
     @logger.debug('Loading gem')
     require 'savon'
 
+    @soap_method = @soap_method.snakecase.to_sym
+
   end # def register
 
   def receive(event)
