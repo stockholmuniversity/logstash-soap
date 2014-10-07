@@ -40,5 +40,12 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
   end # def register
 
   def receive(event)
+    return unless output?(event)
+
+    if event == LogStash::SHUTDOWN
+      finished
+      return
+    end
+
   end
 end #class LogStash::Outputs::SOAP
