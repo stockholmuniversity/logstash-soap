@@ -31,6 +31,12 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
 
     @soap_method = @soap_method.snakecase.to_sym
 
+    @client = Savon.client(
+      wsdl: @wsdl,
+      ssl_ca_cert_file: @ssl_cafile,
+      ssl_verify_mode: :peer
+    )
+
   end # def register
 
   def receive(event)
