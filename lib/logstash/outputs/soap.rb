@@ -25,6 +25,10 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
 
   public
   def register
+    @logger.info('Registering SOAP producer', :wsdl => @wsdl, :soap_method => @soap_method)
+    @logger.debug('Loading gem')
+    require 'savon'
+
   end # def register
 
   def receive(event)
