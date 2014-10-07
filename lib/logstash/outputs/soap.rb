@@ -42,6 +42,16 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
   def receive(event)
     return unless output?(event)
 
+    response = nil
+    begin
+      response = @client.call(@soap_method, :message => event[@soap_body])
+    rescue LogStash::ShutdownSignal
+      @logger.info('SOAP producer got shutdown signal')
+    rescue => e
+      @logger.warn('SOAP producer threw exception, restarting',
+                   :exception => e)
+    end
+    @logger.warn("SOAP response:", :response => response)
     if event == LogStash::SHUTDOWN
       finished
       return
