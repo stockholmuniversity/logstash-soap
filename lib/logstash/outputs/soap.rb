@@ -56,7 +56,7 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
       @logger.error('SOAP plugin threw exception',
                    :exception => e)
     end
-    @logger.warn("SOAP response:", :response => response)
+    @logger.debug("SOAP response:", :response => response)
     if event == LogStash::SHUTDOWN
       finished
       return
