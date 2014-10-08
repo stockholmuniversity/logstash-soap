@@ -35,6 +35,11 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
       wsdl: @wsdl,
       ssl_ca_cert_file: @ssl_cafile,
       ssl_verify_mode: :peer
+      # FIXME Needs ruby-cabin#23 to be fixed before enabling
+      # log: true,
+      # log_level: :debug,
+      # pretty_print_xml: true,
+      # logger: @logger
     )
 
   end # def register
