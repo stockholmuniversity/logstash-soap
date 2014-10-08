@@ -10,7 +10,8 @@ This is a bit hackish and might not work, so YMMV. This is going to be so much
 easier when logstash#1507 is done.
 
 1. Change directory into the folder where logstash is installed, e.g. `/opt/logstash/`
-2. Run ```
+2. Run:
+```
 $ gem install --install-dir vendor/bundle/jruby/1.9/ --version '~> 2.7.2' savon
 ```
 
