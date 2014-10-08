@@ -11,7 +11,7 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
   config :wsdl, :validate => :string, :required => true
 
   # The path to the CA file to use for SSL validation, e.g: "/etc/ssl/certs/ca-certificates.crt"
-  config :ssl_cafile, :validate => :string, :required => true
+  config :ssl_cafile, :validate => :string
 
   # The SOAP method we should submit to, e.g: "AddService"
   config :soap_method, :validate => :string, :required => true
