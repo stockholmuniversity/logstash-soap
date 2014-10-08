@@ -46,9 +46,9 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
     begin
       response = @client.call(@soap_method, :message => event[@soap_body])
     rescue LogStash::ShutdownSignal
-      @logger.info('SOAP producer got shutdown signal')
+      @logger.info('SOAP plugin got shutdown signal')
     rescue => e
-      @logger.warn('SOAP producer threw exception, restarting',
+      @logger.error('SOAP plugin threw exception',
                    :exception => e)
     end
     @logger.warn("SOAP response:", :response => response)
