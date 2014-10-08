@@ -16,8 +16,27 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
   # The SOAP method we should submit to, e.g: "AddService"
   config :soap_method, :validate => :string, :required => true
 
-  # FIXME
-  # The name of the hash in the event which hold what should be sent as the body of the SOAP message. E.g: "soap_body"
+  # The name of the hash in the event which hold what should be sent as the arguments to your SOAP method. E.g: "soap_body"
+  # Say you have an message which looks like this:
+  # {
+  #      "message" => "{\"hostname\": \"example.com\", \"service_name\": \"syslog\"}",
+  #     "@version" => "1",
+  #   "@timestamp" => "2014-10-08T12:49:41.011Z"
+  # }
+  #
+  # You'd transform "message" into "soap_body" via the json filter, e.g:
+  # filter {
+  #   json {
+  #     source => "message"
+  #     target => "soap_body"
+  #   }
+  # }
+  # which adds this into your message:
+  # "soap_body" => {
+  #   "hostname" => "example.com",
+  #   "service_name" => "syslog"
+  # }
+  # And "hostname" and "service_name" becomes the arguments into your soap_method call.
   config :soap_body, :validate => :string, :required => true, :default => "soap_body"
 
   public
