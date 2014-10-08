@@ -15,7 +15,7 @@ easier when logstash#1507 is done.
 Usage
 -----
 
-See the comments in (lib/logstash/outputs/soap.rb)[lib/logstash/outputs/soap.rb] since there's no RDOC
+See the comments in [lib/logstash/outputs/soap.rb](lib/logstash/outputs/soap.rb) since there's no RDOC
 available.
 
 License
