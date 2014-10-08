@@ -57,5 +57,6 @@ class LogStash::Outputs::SOAP < LogStash::Outputs::Base
       return
     end
 
-  end
+  end # def receive
+
 end #class LogStash::Outputs::SOAP
