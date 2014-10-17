@@ -7,7 +7,7 @@ Installation
 ------------
 
 This is a bit hackish and might not work, so YMMV. This is going to be so much
-easier when elasticsearch/logstash#1507 is done.
+easier when [elasticsearch/logstash#1507](https://github.com/elasticsearch/logstash/issues/1507) is done.
 
 1. Change directory into the folder where logstash is installed, e.g. `/opt/logstash/`
 2. Run:
